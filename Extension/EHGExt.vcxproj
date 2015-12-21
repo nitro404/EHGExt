@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{692EC577-7049-40FD-9D28-8A8BEC5B833D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>EHGExt</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files (x86)\Boost 1.59;C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\include;C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\include\QtCore;C:\Program Files (x86)\MySQL\MySQL Server 5.7\include;C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.6\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\lib;C:\Program Files (x86)\MySQL\MySQL Server 5.7\lib;C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.6\lib\opt;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>./@EHGExt;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\include;C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\include\QtCore;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Qt5.3.1\5.3\msvc2013_opengl\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>./@EHGExt;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EHGEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EHGEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Extension Manager\ExtensionManager.cpp" />
+    <ClCompile Include="Source\Extension.cpp" />
+    <ClCompile Include="Source\Logger\Logger.cpp" />
+    <ClCompile Include="Source\Math\ExtendedMath.cpp" />
+    <ClCompile Include="Source\Math\Vector2.cpp" />
+    <ClCompile Include="Source\Math\Vector3.cpp" />
+    <ClCompile Include="Source\Math\Vector4.cpp" />
+    <ClCompile Include="Source\Settings Manager\SettingsManager.cpp" />
+    <ClCompile Include="Source\Singleton\SingletonManager.cpp" />
+    <ClCompile Include="Source\SQF\Functions\MathFunctions.cpp" />
+    <ClCompile Include="Source\SQF\Functions\StringFunctions.cpp" />
+    <ClCompile Include="Source\SQF\Functions\UtilityFunctions.cpp" />
+    <ClCompile Include="Source\SQF\SQFCFunction.cpp" />
+    <ClCompile Include="Source\SQF\SQFCPPFunction.cpp" />
+    <ClCompile Include="Source\SQF\SQFFunctionManager.cpp" />
+    <ClCompile Include="Source\SQF\SQFObject.cpp" />
+    <ClCompile Include="Source\SQF\SQFObjectType.cpp" />
+    <ClCompile Include="Source\Utilities\Utilities.cpp" />
+    <ClCompile Include="Source\Variable System\Variable.cpp" />
+    <ClCompile Include="Source\Variable System\VariableCollection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Extension Manager\ExtensionManager.h" />
+    <ClInclude Include="Source\Extension.h" />
+    <ClInclude Include="Source\Logger\Logger.h" />
+    <ClInclude Include="Source\Math\ExtendedMath.h" />
+    <ClInclude Include="Source\Math\Vector2.h" />
+    <ClInclude Include="Source\Math\Vector3.h" />
+    <ClInclude Include="Source\Math\Vector4.h" />
+    <ClInclude Include="Source\Settings Manager\SettingsManager.h" />
+    <ClInclude Include="Source\Singleton\Singleton.h" />
+    <ClInclude Include="Source\Singleton\SingletonManager.h" />
+    <ClInclude Include="Source\SQF\Functions\MathFunctions.h" />
+    <ClInclude Include="Source\SQF\Functions\StringFunctions.h" />
+    <ClInclude Include="Source\SQF\Functions\UtilityFunctions.h" />
+    <ClInclude Include="Source\SQF\SQFCFunction.h" />
+    <ClInclude Include="Source\SQF\SQFCPPFunction.h" />
+    <ClInclude Include="Source\SQF\SQFFunction.h" />
+    <ClInclude Include="Source\SQF\SQFFunctionManager.h" />
+    <ClInclude Include="Source\SQF\SQFObject.h" />
+    <ClInclude Include="Source\SQF\SQFObjectType.h" />
+    <ClInclude Include="Source\Utilities\Utilities.h" />
+    <ClInclude Include="Source\Variable System\Variable.h" />
+    <ClInclude Include="Source\Variable System\VariableCollection.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

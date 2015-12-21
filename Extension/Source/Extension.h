@@ -1,0 +1,8 @@
+#ifndef EXTENSION_H
+#define EXTENSION_H
+
+#define DEBUGGING 1
+
+#define LOG_FUNCTION_CALLS DEBUGGING
+
+#endif // EXTENSION_H

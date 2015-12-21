@@ -1,0 +1,12 @@
+Debug
+Release
+Test
+Misc
+*.ncb
+*.sdf
+*.suo
+*.vcproj.*
+*.vcxproj.user
+*.opensdf
+*.EXE
+*.BAT
